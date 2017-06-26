@@ -1,0 +1,34 @@
+{
+  "name": "redux-offline-status",
+  "version": "0.1.0",
+  "description": "Redux middleware for tracking whether an application should behave offline or online. Uses network requests to determine network status, which is more reliable than navigator.onLine. Configurable to manage state for connections to multiple servers beyond just the client's connection to the internet.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test mocha './src/**/*.test.js' --compilers js:babel-core/register --require ignore-styles --require babel-polyfill",
+    "test:watch": "npm test -- --watch",
+    "lint:scripts": "eslint src/**/* --ext .js",
+    "build": "babel ./src --out-dir ./lib --copy-files",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "redux",
+    "offline",
+    "network",
+    "offline-first"
+  ],
+  "author": "Nick Stevens",
+  "license": "MIT",
+  "dependencies": {
+    "is-online": "^7.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "expect": "^1.20.2",
+    "mocha": "^3.4.2"
+  },
+  "peerDependencies": {
+    "redux": ">=3.0.0"
+  }
+}
