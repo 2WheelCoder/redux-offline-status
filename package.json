@@ -1,6 +1,6 @@
 {
   "name": "redux-offline-status",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Redux middleware for tracking whether an application should behave offline or online. Uses network requests to determine network status, which is more reliable than navigator.onLine. Configurable to manage state for connections to multiple servers beyond just the client's connection to the internet.",
   "main": "./lib/index.js",
   "scripts": {
