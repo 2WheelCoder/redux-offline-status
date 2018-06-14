@@ -7,7 +7,7 @@ Middleware for managing the offline status of a redux application. Perfect for b
 * Works great with redux sagas for handling network errors and queuing requests when offline
 
 ## Basic Setup
-```
+```js
 import {combineReducers, applyMiddleware, createStore} from 'redux'
 import {
   offlineStatus,
@@ -31,7 +31,7 @@ const store = createStore(
 )
 ```
 From here, you'll be able to respond to ONLINE and OFFLINE actions in your reducers and application. For example:
-```
+```js
 import {
   ONLINE,
   OFFLINE
@@ -55,7 +55,7 @@ const errorsReducer = (state = [], action) => {
 ```
 
 Or, you may simply check the offline status in your redux connected components:
-```
+```js
 import { connect } from 'react-redux'
 import { isOffline } from 'redux-offline-status/getters'
 
@@ -72,7 +72,7 @@ export default VisibleMyComponent
 Note: The getter included is only for the default reducer implementation used above. If you use a custom name for the offline reducer you will need to create your own getter.
 
 Note, while the middleware will automatically detect when the application returns online, you must dispatch the `OFFLINE` action when there is a network error so the middleware can initiate the internal to check for a returned connection. For example:
-```
+```js
 import { OFFLINE } from 'redux-offline-status/actions'
 fetch('http://myapi.com/products')
   .then((response) => {
@@ -89,7 +89,7 @@ fetch('http://myapi.com/products')
 
 ## Configuration
 You can (optionally) pass a configuration object when initializing the middleware.
-```
+```js
 const config = {
   connectionFn: myConnectionFn,
   intervalLength: 1000 * 15,
@@ -120,7 +120,7 @@ The name of the action used to indicate the app is offline. If you are managing 
 redux-offline-status is not dependent on sagas, but I highly suggest you use them when developing an offline-first application (or any application that calls an API). Here's an example of how simple it is to make your API call wait for the application to come online using a saga:
 
 Or, if you'd like a slightly more complicated version with error handling and retry functionality (using recursion):
-```
+```js
 import { isOffline } from 'redux-offline-status/getters'
 import {
   ONLINE,
